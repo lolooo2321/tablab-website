@@ -1,0 +1,496 @@
+{
+  "title": "Try the Look",
+  "looks": [
+    {
+      "id": "ink",
+      "name": "Studio Ink",
+      "image": {
+        "src": "images/looks/ink.webp",
+        "width": 768,
+        "height": 1536,
+        "alt": "Model wearing oval sunglasses, a washed black tee, pale wide-leg jeans and white court sneakers.",
+        "smallSrc": "images/looks/ink-sm.webp",
+        "smallWidth": 384,
+        "smallHeight": 768
+      },
+      "items": [
+        {
+          "productId": "ink-tee",
+          "hotspot": {
+            "xPct": 55,
+            "yPct": 28
+          }
+        },
+        {
+          "productId": "ice-jeans",
+          "hotspot": {
+            "xPct": 61.5,
+            "yPct": 63.8
+          }
+        },
+        {
+          "productId": "chalk-court",
+          "hotspot": {
+            "xPct": 66,
+            "yPct": 94.5
+          }
+        },
+        {
+          "productId": "smoke-oval",
+          "hotspot": {
+            "xPct": 49,
+            "yPct": 8.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "oxide",
+      "name": "Red Oxide",
+      "image": {
+        "src": "images/looks/oxide.webp",
+        "width": 768,
+        "height": 1536,
+        "alt": "Model in a brick-red crewneck, charcoal wide-leg jeans and black gum-sole sneakers.",
+        "smallSrc": "images/looks/oxide-sm.webp",
+        "smallWidth": 384,
+        "smallHeight": 768
+      },
+      "items": [
+        {
+          "productId": "oxide-crew",
+          "hotspot": {
+            "xPct": 53,
+            "yPct": 29.4
+          }
+        },
+        {
+          "productId": "ash-jeans",
+          "hotspot": {
+            "xPct": 64,
+            "yPct": 64.5
+          }
+        },
+        {
+          "productId": "black-canvas",
+          "hotspot": {
+            "xPct": 67,
+            "yPct": 94.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "name": "Morning Fog",
+      "image": {
+        "src": "images/looks/fog.webp",
+        "width": 768,
+        "height": 1536,
+        "alt": "Model in a heather-grey long sleeve, light-blue jeans and ecru canvas sneakers.",
+        "smallSrc": "images/looks/fog-sm.webp",
+        "smallWidth": 384,
+        "smallHeight": 768
+      },
+      "items": [
+        {
+          "productId": "fog-long-sleeve",
+          "hotspot": {
+            "xPct": 48,
+            "yPct": 30.2
+          }
+        },
+        {
+          "productId": "glacier-jeans",
+          "hotspot": {
+            "xPct": 59.4,
+            "yPct": 62.8
+          }
+        },
+        {
+          "productId": "ecru-canvas",
+          "hotspot": {
+            "xPct": 66,
+            "yPct": 94.4
+          }
+        }
+      ]
+    },
+    {
+      "id": "slate",
+      "name": "Blue Slate",
+      "image": {
+        "src": "images/looks/slate.webp",
+        "width": 768,
+        "height": 1536,
+        "alt": "Model standing with folded arms in a blue-slate sweatshirt, indigo jeans and silver mesh runners.",
+        "smallSrc": "images/looks/slate-sm.webp",
+        "smallWidth": 384,
+        "smallHeight": 768
+      },
+      "items": [
+        {
+          "productId": "slate-crew",
+          "hotspot": {
+            "xPct": 46.5,
+            "yPct": 23.7
+          }
+        },
+        {
+          "productId": "indigo-jeans",
+          "hotspot": {
+            "xPct": 57.8,
+            "yPct": 62.2
+          }
+        },
+        {
+          "productId": "silver-runner",
+          "hotspot": {
+            "xPct": 65,
+            "yPct": 93.8
+          }
+        }
+      ]
+    },
+    {
+      "id": "chalk",
+      "name": "Soft Chalk",
+      "image": {
+        "src": "images/looks/chalk.webp",
+        "width": 768,
+        "height": 1536,
+        "alt": "Model wearing a white boxy tee, sage fatigue trousers and dark suede trainers.",
+        "smallSrc": "images/looks/chalk-sm.webp",
+        "smallWidth": 384,
+        "smallHeight": 768
+      },
+      "items": [
+        {
+          "productId": "chalk-tee",
+          "hotspot": {
+            "xPct": 50,
+            "yPct": 28.6
+          }
+        },
+        {
+          "productId": "sage-fatigues",
+          "hotspot": {
+            "xPct": 57.3,
+            "yPct": 63.8
+          }
+        },
+        {
+          "productId": "graphite-trainer",
+          "hotspot": {
+            "xPct": 64.6,
+            "yPct": 94.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "moss",
+      "name": "Field Moss",
+      "image": {
+        "src": "images/looks/moss.webp",
+        "width": 768,
+        "height": 1536,
+        "alt": "Model in an olive sweatshirt, brown carpenter trousers and tan suede sneakers.",
+        "smallSrc": "images/looks/moss-sm.webp",
+        "smallWidth": 384,
+        "smallHeight": 768
+      },
+      "items": [
+        {
+          "productId": "moss-crew",
+          "hotspot": {
+            "xPct": 48.4,
+            "yPct": 30.5
+          }
+        },
+        {
+          "productId": "umber-carpenters",
+          "hotspot": {
+            "xPct": 66.7,
+            "yPct": 61.5
+          }
+        },
+        {
+          "productId": "sand-court",
+          "hotspot": {
+            "xPct": 38,
+            "yPct": 94.5
+          }
+        }
+      ]
+    }
+  ],
+  "products": {
+    "ink-tee": {
+      "name": "Ink Box Tee",
+      "category": "T-shirt",
+      "color": "Ink black",
+      "image": {
+        "src": "images/products/ink-tee.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Washed black cotton T-shirt with dropped shoulders and a boxy hem.",
+        "smallSrc": "images/products/ink-tee-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "ice-jeans": {
+      "name": "Ice Wide Jeans",
+      "category": "Jeans",
+      "color": "Ice blue",
+      "image": {
+        "src": "images/products/ice-jeans.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Pale ice-blue five-pocket jeans with a wide, straight leg.",
+        "smallSrc": "images/products/ice-jeans-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "chalk-court": {
+      "name": "Chalk Court Sneaker",
+      "category": "Footwear",
+      "color": "Chalk white",
+      "image": {
+        "src": "images/products/chalk-court.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Warm-white leather court sneaker with a grey heel tab and an ivory sole.",
+        "smallSrc": "images/products/chalk-court-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "smoke-oval": {
+      "name": "Smoke Oval Sunglasses",
+      "category": "Eyewear",
+      "color": "Black / smoke",
+      "image": {
+        "src": "images/products/smoke-oval.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Slim black oval sunglasses with smoke-grey lenses and small hinge pins.",
+        "smallSrc": "images/products/smoke-oval-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "oxide-crew": {
+      "name": "Oxide Loopback Crew",
+      "category": "Sweatshirt",
+      "color": "Red oxide",
+      "image": {
+        "src": "images/products/oxide-crew.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Brick-red crewneck sweatshirt with faded seams and ribbed cuffs.",
+        "smallSrc": "images/products/oxide-crew-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "ash-jeans": {
+      "name": "Ash Wide Jeans",
+      "category": "Jeans",
+      "color": "Washed charcoal",
+      "image": {
+        "src": "images/products/ash-jeans.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Washed charcoal five-pocket jeans with a relaxed leg and subtle fading.",
+        "smallSrc": "images/products/ash-jeans-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "black-canvas": {
+      "name": "Carbon Canvas Low",
+      "category": "Footwear",
+      "color": "Black / gum",
+      "image": {
+        "src": "images/products/black-canvas.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Black canvas and suede low-top with black laces and a gum sole.",
+        "smallSrc": "images/products/black-canvas-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "fog-long-sleeve": {
+      "name": "Fog Long Sleeve",
+      "category": "Long-sleeve T-shirt",
+      "color": "Pearl grey",
+      "image": {
+        "src": "images/products/fog-long-sleeve.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Light heather-grey long-sleeve T-shirt with a fine ribbed neckline.",
+        "smallSrc": "images/products/fog-long-sleeve-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "glacier-jeans": {
+      "name": "Glacier Straight Jeans",
+      "category": "Jeans",
+      "color": "Glacier blue",
+      "image": {
+        "src": "images/products/glacier-jeans.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Glacier-blue denim jeans with a straight cut and pale contrast stitching.",
+        "smallSrc": "images/products/glacier-jeans-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "ecru-canvas": {
+      "name": "Ecru Canvas Low",
+      "category": "Footwear",
+      "color": "Ecru / black",
+      "image": {
+        "src": "images/products/ecru-canvas.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Ecru canvas low-top with a rubber toe cap and a dark line around the sole.",
+        "smallSrc": "images/products/ecru-canvas-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "slate-crew": {
+      "name": "Slate Fleece Crew",
+      "category": "Sweatshirt",
+      "color": "Blue slate",
+      "image": {
+        "src": "images/products/slate-crew.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Muted blue-grey fleece crewneck with a boxy body and ribbed hem.",
+        "smallSrc": "images/products/slate-crew-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "indigo-jeans": {
+      "name": "Indigo Loose Jeans",
+      "category": "Jeans",
+      "color": "Mid indigo",
+      "image": {
+        "src": "images/products/indigo-jeans.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Mid-indigo relaxed jeans with copper stitching and a gently faded wash.",
+        "smallSrc": "images/products/indigo-jeans-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "silver-runner": {
+      "name": "Alloy Mesh Runner",
+      "category": "Footwear",
+      "color": "Silver / grey",
+      "image": {
+        "src": "images/products/silver-runner.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Silver-grey mesh running shoe with layered panels and an off-white foam sole.",
+        "smallSrc": "images/products/silver-runner-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "chalk-tee": {
+      "name": "Chalk Heavy Tee",
+      "category": "T-shirt",
+      "color": "Soft white",
+      "image": {
+        "src": "images/products/chalk-tee.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Soft white cotton T-shirt with a high crewneck and wide sleeves.",
+        "smallSrc": "images/products/chalk-tee-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "sage-fatigues": {
+      "name": "Sage Fatigue Trouser",
+      "category": "Trousers",
+      "color": "Dusty sage",
+      "image": {
+        "src": "images/products/sage-fatigues.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Sage-green straight-leg twill trousers with fatigue-style front pockets.",
+        "smallSrc": "images/products/sage-fatigues-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "graphite-trainer": {
+      "name": "Graphite Suede Trainer",
+      "category": "Footwear",
+      "color": "Graphite / ivory",
+      "image": {
+        "src": "images/products/graphite-trainer.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Dark graphite suede low-top trainer with charcoal laces and an ivory sole.",
+        "smallSrc": "images/products/graphite-trainer-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "moss-crew": {
+      "name": "Moss Loopback Crew",
+      "category": "Sweatshirt",
+      "color": "Olive moss",
+      "image": {
+        "src": "images/products/moss-crew.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Dark olive crewneck sweatshirt with dropped shoulders and deep ribbed cuffs.",
+        "smallSrc": "images/products/moss-crew-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "umber-carpenters": {
+      "name": "Umber Carpenter Pant",
+      "category": "Trousers",
+      "color": "Cocoa brown",
+      "image": {
+        "src": "images/products/umber-carpenters.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Cocoa-brown carpenter trousers with a side tool pocket and hammer loop.",
+        "smallSrc": "images/products/umber-carpenters-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    },
+    "sand-court": {
+      "name": "Sand Suede Court",
+      "category": "Footwear",
+      "color": "Sand / gum",
+      "image": {
+        "src": "images/products/sand-court.webp",
+        "width": 1024,
+        "height": 1024,
+        "alt": "Sand-coloured suede court shoe with tonal laces and a honey-gum sole.",
+        "smallSrc": "images/products/sand-court-sm.webp",
+        "smallWidth": 320,
+        "smallHeight": 320
+      }
+    }
+  }
+}

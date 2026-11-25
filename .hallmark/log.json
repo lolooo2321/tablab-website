@@ -1,0 +1,30 @@
+[
+ {
+  "shape": "custom folder stack",
+  "theme": "brand",
+  "axes": "dark/grotesk-sans/chromatic-lime",
+  "hero": "Stage",
+  "nav": "edge-aligned",
+  "footer": "mast",
+  "imagery": "screenshots 3 (playwright) + brand render",
+  "photos": 0,
+  "entry": "loader then split-line hero",
+  "fingerprint": "hero-stage/folders-tabs/statement/rows/steps/form-band/mast",
+  "sections": [
+   "hero",
+   "folders",
+   "statement",
+   "rows",
+   "steps",
+   "form band",
+   "footer mast"
+  ],
+  "signature": "three live concept sites stacked as glass folders",
+  "waived": [
+   "38iii"
+  ],
+  "prompt": "TabLab agency site, bilingual, animated, live previews of three concept sites",
+  "date": "2026-11-25",
+  "mode": "build"
+ }
+]

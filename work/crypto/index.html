@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ledger / Light</title>
+  <meta name="description" content="Value, made visible. A live, hands-on walk down the blockchain: real SHA-256 mining in your browser.">
+  <meta property="og:title" content="Ledger / Light">
+  <meta property="og:description" content="Value, made visible. Break a real blockchain, then mine it back.">
+  <meta property="og:image" content="images/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#07080B">
+  <link rel="icon" href="images/token.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    document.documentElement.classList.add('js', 'is-loading');
+    // Safety net: never leave the intro on screen if a script fails.
+    setTimeout(function () { document.documentElement.classList.add('loaded'); document.documentElement.classList.remove('is-loading'); }, 9000);
+  </script>
+</head>
+<body>
+  <!-- Intro: mines the first blocks for real -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <p class="mono loader-label"><span class="dot"></span><span id="loaderLabel">Mining genesis block</span></p>
+      <p class="mono loader-hash" id="loaderHash">0000000000000000000000000000000000000000000000000000000000000000</p>
+      <div class="loader-bar"><span id="loaderBar"></span></div>
+      <div class="loader-meta mono">
+        <span>Nonce <b id="loaderNonce">0</b></span>
+        <span>Target <b>000…</b></span>
+        <span><b id="loaderBlocks">0</b> / 4 blocks</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Warp transition for in-page navigation -->
+  <div class="warp" aria-hidden="true">
+    <div class="warp-grid"></div>
+    <canvas class="warp-canvas"></canvas>
+    <div class="warp-label">
+      <p class="mono warp-kicker">Jumping to <span class="warp-num">block 02</span></p>
+      <p class="warp-title">Chain lab</p>
+      <p class="mono warp-hash">0x000…</p>
+    </div>
+  </div>
+
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a href="#top" class="logo">LEDGER<span>/</span>LIGHT</a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#chain">Chain lab</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#market">Market</a>
+      <a href="#wallet">Wallet</a>
+      <a href="#identity">Identity</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <div class="nav-right">
+      <div class="ach-wrap">
+        <button class="ach-btn mono" id="achBtn" type="button" aria-expanded="false" aria-controls="achPop" aria-label="Discoveries">
+          <span class="ach-ico" aria-hidden="true"></span><span id="achCount">0/10</span>
+        </button>
+        <div class="ach-pop glass" id="achPop" hidden>
+          <p class="mono ach-pop-head">Discoveries <span>+10 HEX each</span></p>
+          <ol class="ach-list" id="achList"></ol>
+        </div>
+      </div>
+      <button class="nav-icon mono" id="consoleBtn" type="button" aria-label="Open chain console (Ctrl+K)" data-cursor="ctrl+k">›_</button>
+      <button class="sound" id="soundToggle" type="button" aria-pressed="false" aria-label="Sound off" data-cursor="sound">
+        <i></i><i></i><i></i><i></i>
+      </button>
+      <div class="nav-block mono"><span class="dot"></span>Block <span id="blockHeight">#8,402,117</span></div>
+    </div>
+  </header>
+
+  <div class="ach-toasts" aria-live="polite"></div>
+
+  <!-- Chain console (Ctrl/Cmd+K or `) -->
+  <div class="console" id="console" role="dialog" aria-modal="true" aria-label="Chain console" hidden>
+    <div class="console-panel glass">
+      <div class="console-bar mono"><span class="console-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>ledger@light: ~/chain</span><kbd>esc</kbd></div>
+      <div class="console-out mono" id="consoleOut" aria-live="polite"></div>
+      <form class="console-in mono" id="consoleForm" autocomplete="off">
+        <span class="prompt" aria-hidden="true">›</span>
+        <input id="consoleInput" type="text" spellcheck="false" autocapitalize="off" aria-label="Command" placeholder="type help">
+      </form>
+    </div>
+  </div>
+
+  <aside class="rail" aria-hidden="true">
+    <div class="rail-blocks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p class="mono"><b id="railCount">1</b>/8<br>confirmations</p>
+  </aside>
+
+  <main id="top">
+    <!-- 1. HERO -->
+    <section class="hero scene" data-name="Genesis" data-shape="orbit" data-anchor=".hero-visual">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow mono hero-eyebrow">
+          <span id="sloganTag">Block 0 · Genesis</span>
+          <span class="slogan-meter" aria-hidden="true"><i></i></span>
+          <span class="slogan-count" id="sloganCount" aria-hidden="true">01 / 04</span>
+        </p>
+        <h1 class="hero-title" aria-label="Value, made visible.">
+          <span class="line l1" aria-hidden="true">Value,</span>
+          <span class="line l2" aria-hidden="true">made visible.</span>
+        </h1>
+        <p class="hero-sub">A hands-on walk down the chain. Every block is a room, every room holds one idea, and the blocks you'll touch are hashed for real in your browser.</p>
+        <div class="hero-actions">
+          <a href="#chain" class="btn btn-primary magnetic" data-cursor="go"><span>Break the chain</span></a>
+          <a href="#wallet" class="btn btn-ghost">Try the wallet</a>
+        </div>
+        <dl class="hero-stats mono">
+          <div><dt>Hash rate</dt><dd><span class="count" data-to="612.4" data-dec="1">612.4</span> EH/s</dd></div>
+          <div><dt>Avg block</dt><dd><span class="count" data-to="9.8" data-dec="1">9.8</span> min</dd></div>
+          <div><dt>Nodes</dt><dd><span class="count" data-to="18204">18,204</span></dd></div>
+        </dl>
+      </div>
+      <div class="hero-visual">
+        <div class="cube-glow" aria-hidden="true"></div>
+        <img src="images/hero-cube.png" alt="Frosted glass genesis cube. Click to explode it." class="hero-cube" width="1024" height="1024" tabindex="0" role="button" data-cursor="click">
+        <div class="live-card glass mono" aria-live="off">
+          <p class="live-top"><span class="dot"></span>Latest block</p>
+          <p class="live-h" id="liveHeight">#8,402,117</p>
+          <p class="live-hash" id="liveHash">0x000…</p>
+          <p class="muted">mined <span id="liveAgo">0</span>s ago</p>
+        </div>
+      </div>
+      <a href="#chain" class="scroll-cue mono" aria-label="Scroll to the chain lab"><span class="cue-link"></span>Scroll</a>
+    </section>
+
+    <div class="band" aria-hidden="true"><div class="band-track"><span>Decentralised</span><i>✦</i><span>Transparent</span><i>✦</i><span>Programmable</span><i>✦</i><span>Unstoppable</span><i>✦</i></div></div>
+
+    <!-- 2. CHAIN LAB -->
+    <section class="lab scene" data-name="Chain lab" id="chain" data-shape="chain">
+      <div class="lab-head">
+        <div class="section-head">
+          <p class="eyebrow mono">02 · Live chain lab</p>
+          <h2 class="split">Break the chain. Then fix it.</h2>
+          <p class="lead">These four blocks are hashed with real SHA-256, right here in your browser. Edit any block's data and watch every block after it break. Press <b>Mine</b> to search for a nonce until the hash starts with <code class="mono accent">000</code>.</p>
+        </div>
+        <div class="lab-side">
+          <p class="lab-status mono" id="labStatus" role="status"><span class="dot"></span><span>Chain valid · 4 / 4 blocks</span></p>
+          <button class="btn btn-ghost" id="tamper" type="button" data-cursor="hack">Tamper with block 2</button>
+        </div>
+      </div>
+      <ol class="lab-blocks" id="labBlocks"></ol>
+    </section>
+
+    <!-- 3. PILLARS -->
+    <section class="pillars scene" data-name="Pillars" id="pillars" data-shape="sphere">
+      <div class="section-head center">
+        <p class="eyebrow mono">03 · Pillars</p>
+        <h2 class="split">Three properties. No middlemen.</h2>
+      </div>
+      <div class="pillar-grid">
+        <article class="pillar holo">
+          <div class="pillar-img"><img src="images/pillar-decentral.png" alt="Network of glowing glass nodes without a centre" loading="lazy" width="1024" height="1024"></div>
+          <div class="pillar-body">
+            <p class="mono pillar-num">I · 18,204 nodes</p>
+            <h3>Decentralised</h3>
+            <p>No single server and no single owner. Thousands of nodes keep the same copy, so there's nothing to switch off.</p>
+          </div>
+        </article>
+        <article class="pillar holo">
+          <div class="pillar-img"><img src="images/pillar-transparent.png" alt="Glass prism with layered data sheets inside" loading="lazy" width="1024" height="1024"></div>
+          <div class="pillar-body">
+            <p class="mono pillar-num">II · 100% auditable</p>
+            <h3>Transparent</h3>
+            <p>Every transaction is public and checkable. Trust comes from maths you can verify, not from a promise.</p>
+          </div>
+        </article>
+        <article class="pillar holo">
+          <div class="pillar-img"><img src="images/pillar-programmable.png" alt="Glass slab with glowing code lines and gears" loading="lazy" width="1024" height="1024"></div>
+          <div class="pillar-body">
+            <p class="mono pillar-num">III · Code is the contract</p>
+            <h3>Programmable</h3>
+            <p>Money that runs code. Contracts settle themselves the moment their conditions are met.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. MARKET -->
+    <section class="market scene" data-name="Market" id="market" data-shape="wave">
+      <div class="ticker mono" aria-label="Prices">
+        <span class="ticker-src" id="tickerSrc">Demo</span>
+        <div class="ticker-mask"><div class="ticker-track"></div></div>
+      </div>
+      <div class="market-inner">
+        <div class="section-head">
+          <p class="eyebrow mono">04 · Market</p>
+          <h2 class="split">Signal, not noise.</h2>
+          <p class="lead">Real prices when the network allows, with a simulated set as a fallback. Hover the chart to read any day.</p>
+          <p class="src-note mono" id="srcNote"><span class="dot"></span>Connecting…</p>
+        </div>
+        <div class="chart-card glass">
+          <div class="chart-top">
+            <div>
+              <div class="seg" role="group" aria-label="Asset">
+                <button type="button" class="on" data-asset="BTC">BTC</button>
+                <button type="button" data-asset="ETH">ETH</button>
+                <button type="button" data-asset="SOL">SOL</button>
+              </div>
+              <p class="chart-price mono">$<span id="chartPrice">0.00</span></p>
+            </div>
+            <div class="chart-right">
+              <div class="seg" role="group" aria-label="Range">
+                <button type="button" data-days="7">7D</button>
+                <button type="button" class="on" data-days="30">30D</button>
+                <button type="button" data-days="90">90D</button>
+              </div>
+              <p class="chart-change mono" id="chartChange">+0.00%</p>
+            </div>
+          </div>
+          <div class="chart-wrap" data-cursor="read">
+            <svg class="chart" viewBox="0 0 600 220" preserveAspectRatio="none" role="img" aria-label="Price chart">
+              <defs>
+                <linearGradient id="fillGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#3CFFB4" stop-opacity=".3"/>
+                  <stop offset="1" stop-color="#3CFFB4" stop-opacity="0"/>
+                </linearGradient>
+                <clipPath id="chartClip"><rect class="chart-clip" x="-10" y="-30" width="0" height="280"/></clipPath>
+              </defs>
+              <g class="chart-grid"></g>
+              <g clip-path="url(#chartClip)">
+                <path class="chart-fill" fill="url(#fillGrad)"/>
+                <path class="chart-path"/>
+              </g>
+              <line class="chart-x" x1="0" x2="0" y1="0" y2="220"/>
+            </svg>
+            <span class="chart-dot" aria-hidden="true"></span>
+            <div class="chart-tip mono" aria-hidden="true"><b></b><span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WALLET -->
+    <section class="wallet scene" data-name="Wallet" id="wallet" data-shape="coin" data-anchor=".vault">
+      <div class="section-head center">
+        <p class="eyebrow mono">05 · Playground</p>
+        <h2 class="split">Drop value into the vault.</h2>
+        <p class="lead">Drag a token into the wallet, or tap it. With a keyboard, focus a token and press Enter.</p>
+      </div>
+      <div class="wallet-stage">
+        <div class="tokens" role="list"></div>
+        <div class="vault" id="vault">
+          <div class="vault-glow" aria-hidden="true"></div>
+          <img src="images/wallet.png" alt="Glass wallet vault" class="vault-img" width="1024" height="1024">
+          <div class="vault-readout glass">
+            <p class="mono muted small">Balance</p>
+            <p class="vault-balance mono"><span id="balance">0.00</span> <small>HEX</small></p>
+            <p class="mono muted small">≈ $<span id="balanceUsd">0.00</span> · <span id="txCount">0</span> tx</p>
+          </div>
+        </div>
+      </div>
+      <div class="ledger">
+        <div class="ledger-head mono"><span>Transaction ledger</span><button class="link-btn" id="resetWallet" type="button">Reset wallet</button></div>
+        <ol class="ledger-list mono" id="ledger"><li class="ledger-empty">No transactions yet. Drop a token in.</li></ol>
+      </div>
+      <div class="toasts" aria-live="polite"></div>
+    </section>
+
+    <!-- 6. IDENTITY -->
+    <section class="identity scene" id="identity" data-shape="lattice" data-anchor="#passWrap" data-name="Identity">
+      <div class="id-grid">
+        <div class="id-left">
+          <div class="section-head">
+            <p class="eyebrow mono">06 · Identity</p>
+            <h2 class="split">Your keys. Your proof.</h2>
+            <p class="lead">Generate a real ECDSA keypair, sign a message with it, and mint a one-of-one Genesis Pass drawn from your public key. Everything happens in this tab and nothing is sent anywhere.</p>
+          </div>
+          <ol class="id-steps">
+            <li class="id-step glass">
+              <div class="id-step-head">
+                <span class="id-n mono">01</span>
+                <h3>Generate a keypair</h3>
+                <button class="btn btn-primary btn-sm" id="genKeys" type="button" data-cursor="keys"><span>Generate</span></button>
+              </div>
+              <dl class="id-kv mono">
+                <div><dt>Address</dt><dd><code id="idAddress">—</code></dd></div>
+                <div><dt>Public key</dt><dd><code id="idPub">—</code></dd></div>
+                <div><dt>Private key</dt><dd><code id="idPriv">—</code> <button class="link-btn" id="revealPriv" type="button" hidden>reveal</button></dd></div>
+              </dl>
+            </li>
+            <li class="id-step glass">
+              <div class="id-step-head">
+                <span class="id-n mono">02</span>
+                <h3>Sign a message</h3>
+                <button class="btn btn-ghost btn-sm" id="signMsg" type="button" disabled><span>Sign</span></button>
+              </div>
+              <label class="sr-only" for="idMsg">Message to sign</label>
+              <textarea id="idMsg" class="mono" rows="2" maxlength="90" spellcheck="false">I was here. Block #8,402,117</textarea>
+              <dl class="id-kv mono"><div><dt>Signature</dt><dd><code id="idSig">—</code></dd></div></dl>
+              <p class="id-verify mono" id="idVerify" role="status"><span class="dot"></span><span>Generate keys, then sign</span></p>
+            </li>
+          </ol>
+        </div>
+        <div class="id-right">
+          <div class="pass-wrap holo-pass" id="passWrap">
+            <canvas id="passCanvas" width="1080" height="1350" role="img" aria-label="Your Genesis Pass"></canvas>
+          </div>
+          <div class="pass-actions">
+            <button class="btn btn-primary" id="downloadPass" type="button" disabled data-cursor="save"><span>Download pass</span></button>
+            <button class="btn btn-ghost" id="sharePass" type="button" hidden><span>Share</span></button>
+          </div>
+          <p class="mono muted small pass-note">1080 × 1350 PNG · sized for Instagram</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="band band-2" aria-hidden="true"><div class="band-track"><span>Mine</span><i>✦</i><span>Verify</span><i>✦</i><span>Settle</span><i>✦</i><span>Repeat</span><i>✦</i></div></div>
+
+    <!-- 6. ROADMAP -->
+    <section class="roadmap scene" data-name="Roadmap" id="roadmap" data-shape="helix">
+      <div class="roadmap-bg" aria-hidden="true"></div>
+      <div class="roadmap-pin">
+        <div class="section-head">
+          <p class="eyebrow mono">07 · Roadmap</p>
+          <h2 class="split">Where the chain goes next.</h2>
+        </div>
+        <div class="road-track">
+          <div class="road-line" aria-hidden="true"><span></span></div>
+          <ol class="milestones">
+            <li class="milestone"><p class="mono">Q1 · 2026</p><h3>Genesis</h3><p>First block mined. The network has 12 nodes and a lot of hope.</p></li>
+            <li class="milestone"><p class="mono">Q3 · 2026</p><h3>Open nodes</h3><p>Anyone can run a node from a laptop. The network reaches 10,000 nodes.</p></li>
+            <li class="milestone"><p class="mono">Q1 · 2027</p><h3>Smart vaults</h3><p>Programmable wallets that save, split and pay on their own.</p></li>
+            <li class="milestone"><p class="mono">Q3 · 2027</p><h3>Light bridge</h3><p>Value moves between chains in seconds, with proofs instead of custodians.</p></li>
+            <li class="milestone"><p class="mono">2028</p><h3>Everywhere</h3><p>The chain becomes invisible. It just works, the way the internet did.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. CTA -->
+    <section class="cta scene" data-name="Next block" data-shape="galaxy">
+      <div class="cta-bg" aria-hidden="true"></div>
+      <p class="eyebrow mono">08 · Next block</p>
+      <h2 class="cta-title" aria-label="Join the chain.">Join the chain.</h2>
+      <p class="cta-sub">The next block is waiting for someone to mine it.</p>
+      <a href="#chain" class="btn btn-primary btn-lg magnetic" data-cursor="mine"><span>Mine your block</span></a>
+    </section>
+  </main>
+
+  <footer class="footer mono">
+    <span>LEDGER/LIGHT © 2026</span>
+    <span>A design showcase. Not financial advice. HEX and wallet figures are fictional.</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Web Fix — Collection 01</title>
+    <meta name="description" content="Web Fix Collection 01: seven tees, fourteen colorways. Browse the rack, rotate every shirt, and see the back artwork up close." />
+    <meta name="theme-color" content="#f1efe9" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Crect x=%222%22 y=%222%22 width=%2212%22 height=%2212%22 fill=%22%231f47f5%22/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <script>
+      // First visit only: play the entrance. Decided before first paint, so repeat visits never flash it.
+      try {
+        if (!localStorage.getItem('webfix-intro-v1')) document.documentElement.classList.add('intro');
+      } catch (e) {
+        document.documentElement.classList.add('intro');
+      }
+    </script>
+    <script type="module" crossorigin src="./assets/index-eiyK9shv.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-9erwUuFF.css">
+  </head>
+  <body>
+    <div class="intro-screen" id="intro" aria-hidden="true">
+      <div class="intro-mark">
+        <span class="intro-square"><span class="intro-pulse"></span></span>
+        <span class="intro-word"><span>Web Fix</span></span>
+      </div>
+      <p class="intro-sub mono">Collection 01</p>
+      <span class="intro-progress"><span></span></span>
+    </div>
+
+    <a class="skip-link" href="#rack-title">Skip to the rack</a>
+
+    <div class="page" id="page">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="Web Fix home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-word">Web Fix</span>
+        </a>
+        <p class="header-meta mono">
+          <span>Collection 01</span>
+          <span class="header-count" id="header-count"></span>
+        </p>
+      </header>
+
+      <main>
+        <section class="rack-section" aria-labelledby="rack-title">
+          <div class="stage-light" id="stage-light" aria-hidden="true"></div>
+          <div class="rack-intro">
+            <p class="kicker mono">New drop · Collection 01</p>
+            <h1 id="rack-title" tabindex="-1">The rack</h1>
+            <p class="rack-lede">Seven tees, two colorways each. Pick one off the rail.</p>
+          </div>
+
+          <div class="rack-scroller" id="rack-scroller">
+            <div class="rack" id="rack">
+              <div class="rail" aria-hidden="true"><span class="rail-cap rail-cap--l"></span><span class="rail-cap rail-cap--r"></span></div>
+              <ul class="rack-list" id="rack-list" aria-label="Tees on the rack"></ul>
+            </div>
+          </div>
+
+          <p class="rack-caption" id="rack-caption" aria-hidden="true"><span class="rack-caption-name"></span><span class="rack-caption-color mono"></span></p>
+          <p class="rack-status" id="rack-status" role="status"></p>
+        </section>
+
+        <div class="band" aria-hidden="true">
+          <div class="band-track" id="band-track"></div>
+        </div>
+
+        <section class="lineup" aria-labelledby="lineup-title">
+          <div class="lineup-head">
+            <h2 id="lineup-title">The lineup</h2>
+            <p class="mono lineup-sub" id="lineup-sub"></p>
+          </div>
+          <ol class="lineup-list" id="lineup-list"></ol>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span class="brand-word">Web Fix</span>
+        <span class="mono">Rendered product previews. Sizes and availability coming soon.</span>
+      </footer>
+    </div>
+
+    <div class="pv" id="pv" role="dialog" aria-modal="true" aria-labelledby="pv-title" hidden>
+      <button class="pv-close" id="pv-close" type="button" aria-label="Close product view and return to the rack">
+        <span class="mono">Close</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" /></svg>
+      </button>
+
+      <div class="pv-layout">
+        <button class="pv-nav pv-prev" id="pv-prev" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+        </button>
+
+        <div class="pv-stage-wrap">
+          <div class="pv-light" aria-hidden="true"></div>
+          <div
+            class="pv-stage"
+            id="pv-stage"
+            role="slider"
+            tabindex="0"
+            aria-roledescription="360 degree viewer"
+            aria-valuemin="0"
+            aria-valuemax="345"
+            aria-valuenow="0"
+          ></div>
+          <div class="pv-tags" id="pv-tags" role="group" aria-label="Colorways"></div>
+          <p class="pv-hint mono" id="pv-hint" aria-hidden="true">
+            <svg class="pv-hint-icon" viewBox="0 0 28 12"><path d="M5 2L1 6l4 4M23 2l4 4-4 4M1 6h26" /></svg>
+            <span class="pv-hint-text">Drag to rotate</span>
+          </p>
+        </div>
+
+        <div class="pv-info">
+          <p class="pv-kicker mono" id="pv-kicker"></p>
+          <h2 class="pv-title" id="pv-title" tabindex="-1"></h2>
+          <p class="pv-color mono" id="pv-color" aria-live="polite"></p>
+          <div class="pv-views" id="pv-views" role="group" aria-label="Product views"></div>
+          <p class="pv-note" id="pv-note" role="status"></p>
+        </div>
+
+        <button class="pv-nav pv-next" id="pv-next" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+    </div>
+
+  </body>
+</html>

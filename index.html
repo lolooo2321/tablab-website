@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TabLab, websites worth opening</title>
+  <meta name="description" content="TabLab designs and builds custom, animated websites for businesses, from first sketch to launch.">
+  <meta name="theme-color" content="#0E1010">
+  <meta property="og:title" content="TabLab, websites worth opening">
+  <meta property="og:description" content="Custom websites for businesses, designed and built from first sketch to launch.">
+  <meta property="og:image" content="assets/og.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon-180x180.png">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@600&f[]=switzer@400,500&display=swap">
+  <link rel="preload" as="image" href="assets/layers/folder-front.webp" fetchpriority="high">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var saved = localStorage.getItem('tablab-lang');
+        var lang = saved || ((navigator.language || '').toLowerCase().indexOf('hr') === 0 ? 'hr' : 'en');
+        if (lang === 'hr') d.setAttribute('data-lang', 'hr');
+      } catch (e) {}
+      if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('intro-seen');
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <div class="loader keep-motion" aria-hidden="true">
+    <svg class="loader__mark" viewBox="-24 -24 742 705" aria-hidden="true">
+      <path class="loader__flask" pathLength="1" d="M211 .4H482.9V57H444V176.4L693.7 583.9V610.9L648.7 657H45.5L.3 610.9V583.9L249.8 176.4V57H211Z"/>
+      <path class="loader__chevron" d="M173.9 343.7H262.8L357.7 449.2L262.8 557.4H173.9L269.5 449.2Z"/>
+      <path class="loader__cursor" d="M358 500.2H544.8V557.4H358Z"/>
+    </svg>
+  </div>
+
+  <div class="curtain keep-motion" aria-hidden="true">
+    <div class="curtain__panel curtain__panel--dark"></div>
+    <div class="curtain__panel curtain__panel--lime">
+      <svg class="curtain__mark" viewBox="0 0 694 657" aria-hidden="true">
+        <path fill="currentColor" fill-rule="evenodd" d="M211 .4H482.9V57H444V176.4L693.7 583.9V610.9L648.7 657H45.5L.3 610.9V583.9L249.8 176.4V57H211Z M173.9 343.7H262.8L357.7 449.2L262.8 557.4H173.9L269.5 449.2Z M358 500.2H544.8V557.4H358Z"/>
+      </svg>
+      <span class="curtain__label"></span>
+    </div>
+  </div>
+
+  <canvas class="particles" data-particles aria-hidden="true"></canvas>
+
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a class="nav__logo" href="#top" aria-label="TabLab, back to top">
+        <svg viewBox="0 0 763 236" aria-hidden="true"><use href="#logo-horizontal"/></svg>
+      </a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#process" data-i18n="nav.process">Process</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <button class="motion-toggle" type="button" data-motion-toggle data-glow aria-pressed="false" aria-label="Pause animations">
+        <svg class="motion-toggle__pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="3.5" y="3" width="3" height="10" rx="1"/><rect x="9.5" y="3" width="3" height="10" rx="1"/></svg>
+        <svg class="motion-toggle__play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6a.6.6 0 0 0 .9.5l7.6-4.8a.6.6 0 0 0 0-1L5.9 2.7a.6.6 0 0 0-.9.5Z"/></svg>
+      </button>
+      <button class="lang" type="button" data-lang-toggle data-glow data-magnetic="0.25" lang="hr" aria-label="Prebaci na hrvatski">Hrvatski</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title" data-hero>
+            <span class="hero__mask"><span class="hero__line" data-i18n="hero.t1">Websites worth</span></span>
+            <span class="hero__mask hero__mask--rotor"><span class="rotor" aria-hidden="true" data-rotor><span class="rotor__word is-active">opening.</span></span></span>
+            <span class="visually-hidden" data-i18n="hero.t2">opening.</span>
+          </h1>
+          <p class="lead hero__lede" data-hero data-i18n="hero.lede">Custom websites for businesses, designed and built from first sketch to launch.</p>
+        </div>
+        <div class="hero__foot" data-hero>
+          <div class="hero__actions">
+            <a class="btn" href="#contact" data-magnetic="0.35" data-i18n="hero.cta">Start a project</a>
+            <a class="link-quiet" href="#work" data-i18n="hero.work">See the work</a>
+          </div>
+          <p class="hero__index"><span data-i18n="hero.index">Live in the folders below:</span> <a href="#work" data-open-tab="0" data-i18n="p1.tab">Outfit builder</a>, <a href="#work" data-open-tab="1" data-i18n="p2.tab">T-shirt drop</a>, <a href="#work" data-open-tab="2" data-i18n="p3.tab">Crypto landing</a></p>
+        </div>
+      </div>
+      <figure class="hero__visual" data-hero-visual>
+          <img class="layer layer--back" data-layer="0" src="assets/layers/folder-back.webp" width="369" height="287" alt="" decoding="async">
+          <img class="layer layer--middle" data-layer="1" src="assets/layers/folder-middle.webp" width="422" height="306" alt="" decoding="async">
+          <img class="layer layer--front" data-layer="2" src="assets/layers/folder-front.webp" width="438" height="321" alt="" fetchpriority="high" decoding="async">
+      </figure>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <div class="work__head">
+          <h2 id="work-title" data-split data-i18n="work.title">Open a tab. Try a site.</h2>
+          <p class="lead" data-reveal data-i18n="work.lede">Three concept sites we designed and built. They run live in the folders below.</p>
+        </div>
+
+        <div class="folders" data-folders>
+          <div class="folders__tabs" role="tablist" aria-label="Concept sites" data-i18n-aria="work.tablist">
+            <button class="ftab" type="button" data-glow role="tab" id="tab-fashion" aria-controls="panel-fashion" aria-selected="true" data-i18n="p1.tab">Outfit builder</button>
+            <button class="ftab" type="button" data-glow role="tab" id="tab-streetwear" aria-controls="panel-streetwear" aria-selected="false" tabindex="-1" data-i18n="p2.tab">T-shirt drop</button>
+            <button class="ftab" type="button" data-glow role="tab" id="tab-crypto" aria-controls="panel-crypto" aria-selected="false" tabindex="-1" data-i18n="p3.tab">Crypto landing</button>
+          </div>
+
+          <div class="folders__stack">
+            <section class="folder" role="tabpanel" id="panel-fashion" aria-labelledby="tab-fashion" data-site="work/fashion/">
+              <div class="folder__preview" data-preview>
+                <img src="assets/shots/fashion.webp" srcset="assets/shots/fashion-720.webp 720w, assets/shots/fashion.webp 1440w" sizes="(min-width: 60rem) 60vw, 100vw" width="1440" height="900" alt="The outfit builder: six models in a row, the selected look's pieces and bundle price in a side panel." loading="lazy" decoding="async" data-i18n-alt="p1.alt">
+                <button class="preview__try" type="button" data-try data-glow data-magnetic="0.2"><span data-i18n="work.try">Try it here</span></button>
+              </div>
+              <div class="folder__meta">
+                <h3 data-i18n="p1.tab">Outfit builder</h3>
+                <p data-i18n="p1.text">Drag through six looks and see every piece of each outfit, with a price for the full set.</p>
+                <dl class="stack">
+                  <dt data-i18n="work.built">Built with</dt><dd>React, GSAP, Lenis</dd>
+                  <dt data-i18n="work.try-label">Try</dt><dd data-i18n="p1.try">Drag the row of models</dd>
+                </dl>
+                <a class="link-quiet" href="work/fashion/" target="_blank" rel="noopener"><span data-i18n="work.open">Open the full site</span><span class="visually-hidden" data-i18n="newtab"> (opens in a new tab)</span></a>
+              </div>
+            </section>
+
+            <section class="folder" role="tabpanel" id="panel-streetwear" aria-labelledby="tab-streetwear" data-site="work/streetwear/">
+              <div class="folder__preview" data-preview>
+                <img src="assets/shots/streetwear.webp" srcset="assets/shots/streetwear-720.webp 720w, assets/shots/streetwear.webp 1440w" sizes="(min-width: 60rem) 60vw, 100vw" width="1440" height="900" alt="The T-shirt drop: seven tees on a clothes rail under a large heading." loading="lazy" decoding="async" data-i18n-alt="p2.alt">
+                <button class="preview__try" type="button" data-try data-glow data-magnetic="0.2"><span data-i18n="work.try">Try it here</span></button>
+              </div>
+              <div class="folder__meta">
+                <h3 data-i18n="p2.tab">T-shirt drop</h3>
+                <p data-i18n="p2.text">Seven tees on a rail, two colours each. Hover one to preview it, click to take it off the rail.</p>
+                <dl class="stack">
+                  <dt data-i18n="work.built">Built with</dt><dd>TypeScript, Vite</dd>
+                  <dt data-i18n="work.try-label">Try</dt><dd data-i18n="p2.try">Click a tee on the rail</dd>
+                </dl>
+                <a class="link-quiet" href="work/streetwear/" target="_blank" rel="noopener"><span data-i18n="work.open">Open the full site</span><span class="visually-hidden" data-i18n="newtab"> (opens in a new tab)</span></a>
+              </div>
+            </section>
+
+            <section class="folder" role="tabpanel" id="panel-crypto" aria-labelledby="tab-crypto" data-site="work/crypto/">
+              <div class="folder__preview" data-preview>
+                <img src="assets/shots/crypto.webp" srcset="assets/shots/crypto-720.webp 720w, assets/shots/crypto.webp 1440w" sizes="(min-width: 60rem) 60vw, 100vw" width="1440" height="900" alt="The crypto landing page: a large heading on a dark grid with green particles." loading="lazy" decoding="async" data-i18n-alt="p3.alt">
+                <button class="preview__try" type="button" data-try data-glow data-magnetic="0.2"><span data-i18n="work.try">Try it here</span></button>
+              </div>
+              <div class="folder__meta">
+                <h3 data-i18n="p3.tab">Crypto landing</h3>
+                <p data-i18n="p3.text">A landing page that mines its first block before it lets you in, then builds the chain as you scroll.</p>
+                <dl class="stack">
+                  <dt data-i18n="work.built">Built with</dt><dd>GSAP, ScrollTrigger, Lenis</dd>
+                  <dt data-i18n="work.try-label">Try</dt><dd data-i18n="p3.try">Click the glass cube</dd>
+                </dl>
+                <a class="link-quiet" href="work/crypto/" target="_blank" rel="noopener"><span data-i18n="work.open">Open the full site</span><span class="visually-hidden" data-i18n="newtab"> (opens in a new tab)</span></a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement" aria-label="What we believe" data-i18n-aria="statement.label">
+      <div class="container">
+        <p class="statement__text" data-statement data-i18n="statement.text">People decide in a few seconds whether a site is worth their time. We design those seconds.</p>
+      </div>
+    </section>
+
+    <section class="services" id="services" aria-labelledby="services-title">
+      <div class="container services__grid">
+        <div class="services__head">
+          <h2 id="services-title" data-split data-i18n="services.title">From first sketch to live site</h2>
+          <p class="lead" data-reveal data-i18n="services.lede">One small team does the design, the code and the motion.</p>
+        </div>
+        <ol class="rows">
+          <li class="row" data-reveal>
+            <h3 data-i18n="s1.title">Web design</h3>
+            <p data-i18n="s1.text">Layout, type and colour shaped around your brand and checked on real screens.</p>
+          </li>
+          <li class="row" data-reveal>
+            <h3 data-i18n="s2.title">Development</h3>
+            <p data-i18n="s2.text">Hand-written code that loads fast and works on every phone.</p>
+          </li>
+          <li class="row" data-reveal>
+            <h3 data-i18n="s3.title">Motion</h3>
+            <p data-i18n="s3.text">Scroll, hover and page animation that shows people where to look next.</p>
+          </li>
+          <li class="row" data-reveal>
+            <h3 data-i18n="s4.title">Online stores</h3>
+            <p data-i18n="s4.text">Product pages, lookbooks and carts that make browsing easy.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <h2 id="process-title" data-split data-i18n="process.title">Four steps from first call to launch</h2>
+        <div class="process__track" data-process>
+          <div class="process__line" aria-hidden="true"><span></span></div>
+          <ol class="steps">
+            <li class="step">
+              <h3 data-i18n="p.1.title">Brief</h3>
+              <p data-i18n="p.1.text">We talk about your business, your customers and what the site has to do.</p>
+            </li>
+            <li class="step">
+              <h3 data-i18n="p.2.title">Design</h3>
+              <p data-i18n="p.2.text">You click through the layout and the motion in a prototype before any code.</p>
+            </li>
+            <li class="step">
+              <h3 data-i18n="p.3.title">Build</h3>
+              <p data-i18n="p.3.text">We code it, test it on phones and laptops, and tune the speed.</p>
+            </li>
+            <li class="step">
+              <h3 data-i18n="p.4.title">Launch</h3>
+              <p data-i18n="p.4.text">Domain, hosting and handover. We stay on for fixes after launch.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div class="contact__head">
+          <h2 id="contact-title" data-split data-i18n="contact.title">Tell us about your site</h2>
+          <p class="lead" data-reveal data-i18n="contact.lede">A few lines are enough to start.</p>
+          <dl class="contact__facts">
+            <div>
+              <dt data-i18n="contact.email">Email</dt>
+              <dd><span class="fill" data-fill="email" data-i18n="contact.email-soon">Address coming soon</span></dd>
+            </div>
+            <div>
+              <dt data-i18n="contact.phone">Phone</dt>
+              <dd><span class="fill" data-fill="phone" data-i18n="contact.phone-soon">Number coming soon</span></dd>
+            </div>
+            <div>
+              <dt>Instagram</dt>
+              <dd><a href="https://www.instagram.com/tab__lab/" target="_blank" rel="noopener">@tab__lab<span class="visually-hidden" data-i18n="newtab"> (opens in a new tab)</span></a></dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="form" data-endpoint="" novalidate>
+          <div class="field">
+            <label for="f-name" data-i18n="form.name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email" data-i18n="form.email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+          </div>
+          <fieldset class="seg">
+            <legend data-i18n="form.need">What do you need?</legend>
+            <div class="seg__options">
+              <input type="radio" name="need" id="n1" value="new" checked><label for="n1" data-i18n="form.n1">A new website</label>
+              <input type="radio" name="need" id="n2" value="redesign"><label for="n2" data-i18n="form.n2">A redesign</label>
+              <input type="radio" name="need" id="n3" value="store"><label for="n3" data-i18n="form.n3">An online store</label>
+              <input type="radio" name="need" id="n4" value="other"><label for="n4" data-i18n="form.n4">Something else</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="f-msg" data-i18n="form.msg">About the project</label>
+            <textarea id="f-msg" name="message" rows="4" required></textarea>
+          </div>
+          <div class="form__foot">
+            <button class="btn" type="submit" data-glow data-magnetic="0.35" data-i18n="form.send">Send the brief</button>
+            <p class="form__help" id="form-help" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__mast" data-footer-mast>
+        <svg viewBox="0 0 763 236" role="img" aria-label="TabLab"><use href="#logo-horizontal"/></svg>
+      </div>
+      <div class="footer__row">
+        <p data-i18n="footer.line">Web design and development.</p>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="#work" data-i18n="nav.work">Work</a>
+          <a href="#services" data-i18n="nav.services">Services</a>
+          <a href="#process" data-i18n="nav.process">Process</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+          <a href="https://www.instagram.com/tab__lab/" target="_blank" rel="noopener">Instagram<span class="visually-hidden" data-i18n="newtab"> (opens in a new tab)</span></a>
+        </nav>
+        <p class="footer__legal">© 2026 TabLab</p>
+      </div>
+    </div>
+  </footer>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="logo-horizontal" viewBox="0 0 763 236">
+      <path fill="currentColor" fill-rule="evenodd" transform="translate(38 44) scale(0.2268)" d="M211 .4H482.9V57H444V176.4L693.7 583.9V610.9L648.7 657H45.5L.3 610.9V583.9L249.8 176.4V57H211Z M173.9 343.7H262.8L357.7 449.2L262.8 557.4H173.9L269.5 449.2Z M358 500.2H544.8V557.4H358Z"/>
+      <g fill="currentColor" transform="translate(240.64 176.0714)">
+        <path transform="translate(0 0) scale(0.1587 -0.1587)" d="M385 604H598V729H14V604H235V0H385Z"/>
+        <path transform="translate(75.8514 0) scale(0.1587 -0.1587)" d="M524 17C500 40 492 56 492 83V383C492 493 417 549 271 549C125 549 49 487 40 362H175C182 418 205 436 274 436C328 436 355 418 355 382C355 364 346 349 331 340C312 330 312 330 243 319L187 309C80 291 28 236 28 139C28 42 93 -23 192 -23C252 -23 306 2 356 54C356 26 359 16 372 0H524ZM355 217C355 136 315 90 244 90C197 90 168 115 168 155C168 197 190 217 248 229L296 238C333 245 339 247 355 255Z"/>
+        <path transform="translate(157.2568 0) scale(0.1587 -0.1587)" d="M59 729V0H199V55C233 2 280 -23 348 -23C477 -23 575 100 575 263C575 336 553 410 517 462C480 515 414 549 348 549C280 549 233 524 199 470V729ZM317 432C386 432 435 362 435 262C435 163 387 94 317 94C246 94 199 161 199 265C199 364 247 432 317 432Z"/>
+        <path transform="translate(247.3899 0) scale(0.1587 -0.1587)" d="M230 729H80V0H579V125H230Z"/>
+        <path transform="translate(331.969 0) scale(0.1587 -0.1587)" d="M524 17C500 40 492 56 492 83V383C492 493 417 549 271 549C125 549 49 487 40 362H175C182 418 205 436 274 436C328 436 355 418 355 382C355 364 346 349 331 340C312 330 312 330 243 319L187 309C80 291 28 236 28 139C28 42 93 -23 192 -23C252 -23 306 2 356 54C356 26 359 16 372 0H524ZM355 217C355 136 315 90 244 90C197 90 168 115 168 155C168 197 190 217 248 229L296 238C333 245 339 247 355 255Z"/>
+        <path transform="translate(413.3744 0) scale(0.1587 -0.1587)" d="M59 729V0H199V55C233 2 280 -23 348 -23C477 -23 575 100 575 263C575 336 553 410 517 462C480 515 414 549 348 549C280 549 233 524 199 470V729ZM317 432C386 432 435 362 435 262C435 163 387 94 317 94C246 94 199 161 199 265C199 364 247 432 317 432Z"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrambleTextPlugin.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script defer src="js/i18n.js"></script>
+  <script defer src="js/main.js"></script>
+</body>
+</html>
